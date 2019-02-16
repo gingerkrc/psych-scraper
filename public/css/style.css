@@ -1,0 +1,32 @@
+.jumbotron-fluid {
+        padding: 10px;
+        background-color: royalblue;
+        color: white;
+        font-family: Georgia, 'Times New Roman', Times, serif
+      } 
+#articles {
+        display: inline-block;
+        font-weight: bold;
+        overflow: auto;
+        width: 60%;
+        height: 700px;
+        margin-top: 20px;
+      }
+#notes {
+        float: right;
+        width: 30%;
+        margin: 20px 40px 0 0;
+        
+      }
+textarea, input {
+        display: block;
+        width: 100%;
+      }
+input {
+        height: 36px;
+        font-size: 24px;
+      }
+textarea {
+        height: 200px;
+        font-size: 18px;
+      }
