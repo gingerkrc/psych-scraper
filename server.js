@@ -21,7 +21,7 @@ app.get("/scrape", function (req, res) {
     const $ = cheerio.load(results.data);
     var result = {};
     $(".media").each(function (i, element) {
-      result.img = "https://cdn.psychologytoday.com/sites/default/files/styles/thumbnail/public/field_blog_entry_teaser_image/" + $(this).find(".img-fluid").attr("src");
+      result.img = $(this).find(".img-fluid").children("img").attr("src");
       result.title = $(this).find("h2.blog_entry__title").text();
       result.link = $(this).find(".blog_entry__title").children("a").attr("href");
       result.teaser = $(this).find("p.blog_entry__teaser").text();

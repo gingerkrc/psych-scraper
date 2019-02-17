@@ -1,7 +1,7 @@
 $.getJSON("/articles", function(data) {
 
   for (var i = 0; i < data.length; i++) {
-    $("#articles").append("<p data-id='" + data[i]._id + "'>" + data[i].image + data[i].title + "<br />" + "https://www.psychologytoday.com" + data[i].link + "<br />" + data[i].teaser + "</p>");
+    $("#articles").append("<p data-id='" + data[i]._id + "'>" + data[i].img + data[i].title + "<br />" + "https://www.psychologytoday.com" + data[i].link + "<br />" + data[i].teaser + "</p>");
     console.log(data[i].teaser);
   }
 });
