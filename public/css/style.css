@@ -1,9 +1,19 @@
-.jumbotron-fluid {
-        padding: 10px;
-        background-color: royalblue;
-        color: white;
-        font-family: Georgia, 'Times New Roman', Times, serif
+h1 {
+  border-bottom: solid white;
+  padding-bottom: 10px;
+}
+.navbar {
+        padding: 20px, 20px, 0, 10px;
+        margin-bottom: 30px;
+        color: white !important;
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
       } 
+
+.nav-item {
+  padding: 30px;
+  }
+  
+
 #articles {
         display: inline-block;
         font-weight: bold;
@@ -29,4 +39,4 @@ input {
 textarea {
         height: 200px;
         font-size: 18px;
-      }
+      } 

@@ -13,8 +13,9 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static("public"));
 
-const MONGODB_URI = process.env.MONGODB_URI || "mongodb: localhost/psychScraper";
+const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/psychScraper";
 mongoose.connect(MONGODB_URI, { useNewUrlParser: true });
+
 
 app.get("/scrape", function (req, res) {
   axios.get("https://www.psychologytoday.com/us").then(function (results) {
@@ -42,6 +43,7 @@ app.get("/scrape", function (req, res) {
 });
 
 app.get("/articles", function (req, res) {
+  console.log("Get Articles Hit")
   db.Article.find({})
     .then(function (dbArticle) {
       res.json(dbArticle);

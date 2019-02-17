@@ -1,12 +1,24 @@
 $.getJSON("/articles", function(data) {
 
   for (var i = 0; i < data.length; i++) {
-    $("#articles").append("<p data-id='" + data[i]._id + "'>" + data[i].img + data[i].title + "<br />" + "https://www.psychologytoday.com" + data[i].link + "<br />" + data[i].teaser + "</p>");
+    var card = $("<div>").addClass("card");
+    var cardBody = $("<div>").addClass("card-body").attr("data-id", data[i]._id);
+    var cardTitle = $("<h4>").addClass("card-title").text(data[i].title);
+    var cardText = $("<p>").addClass("card-text").text(data[i].teaser);
+    var articleLink = $("<a>").addClass("card-link").attr("href", "https://www.psychologytoday.com" + data[i].link).text("Read Article");
+    var articleNote = $("<button>").addClass("card-link notes").attr("data-id", data[i]._id).text("Write Notes");
+
+    cardBody.append(cardTitle);
+    cardBody.append(cardText);
+    cardBody.append(articleLink);
+    cardBody.append(articleNote);
+    card.append(cardBody);
+    $("#articles").append(card);
     console.log(data[i].teaser);
   }
 });
 
-$(document).on("click", "p", function() {
+$(document).on("click", ".notes", function() {
   $("#notes").empty();
   var thisId = $(this).attr("data-id");
 
