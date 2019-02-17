@@ -13,8 +13,8 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static("public"));
 
-
-mongoose.connect("mongodb://localhost/psychScraper", { useNewUrlParser: true });
+const MONGODB_URI = process.env.MONGODB_URI || "mongodb: localhost/psychScraper";
+mongoose.connect(MONGODB_URI, { useNewUrlParser: true });
 
 app.get("/scrape", function (req, res) {
   axios.get("https://www.psychologytoday.com/us").then(function (results) {
