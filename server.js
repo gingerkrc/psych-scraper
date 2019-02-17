@@ -3,6 +3,7 @@ var mongoose = require("mongoose");
 var axios = require("axios");
 var cheerio = require("cheerio");
 var db = require("./models");
+var path = require("path");
 
 var PORT = 3000 || process.env.PORT;
 
@@ -16,6 +17,9 @@ app.use(express.static("public"));
 const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/psychScraper";
 mongoose.connect(MONGODB_URI, { useNewUrlParser: true });
 
+app.get("/", (req, res) => {
+  res.sendfile(path.join(__dirname, "./public/index.html"));
+})
 
 app.get("/scrape", function (req, res) {
   axios.get("https://www.psychologytoday.com/us").then(function (results) {
