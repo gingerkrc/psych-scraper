@@ -5,7 +5,7 @@ $.getJSON("/articles", function(data) {
     var cardBody = $("<div>").addClass("card-body").attr("data-id", data[i]._id);
     var cardTitle = $("<h4>").addClass("card-title").text(data[i].title);
     var cardText = $("<p>").addClass("card-text").text(data[i].teaser);
-    var articleLink = $("<a>").addClass("card-link").attr("href", "https://www.psychologytoday.com" + data[i].link).text("Read Article");
+    var articleLink = $("<a>").addClass("card-link").attr("href", "https://www.psychologytoday.com" + data[i].link).attr("target","_blank").text("Read Article");
     var articleNote = $("<button>").addClass("card-link notes").attr("data-id", data[i]._id).text("Write Notes");
 
     cardBody.append(cardTitle);
